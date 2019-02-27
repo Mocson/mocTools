@@ -13,7 +13,7 @@
 - macOS
 `/Users/XXXXX/Library/Preferences/Autodesk/maya/scripts`
 
-起動コマンド
+起動コマンド 例：keyframeBoxの起動
 ```python
 from pyTest import keyFrameBox
 reload(keyFrameBox)
