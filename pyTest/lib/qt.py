@@ -1,11 +1,27 @@
 # -*- coding: utf-8 -*-
 from maya import OpenMayaUI, cmds
-from PySide import QtGui
-import shiboken
+import imp
+
+try:
+    imp.find_module('PySide2')
+    from PySide2.QtWidgets import *
+    from PySide2.QtGui import *
+    from PySide2.QtCore import *
+
+except ImportError:
+    from PySide.QtGui import *
+    from PySide.QtCore import *
+
+try :
+    import shiboken2 as shiboken
+except:
+    import shiboken
+
+
 
 def getMayaWindow():
     ptr = OpenMayaUI.MQtUtil.mainWindow()
-    widget = shiboken.wrapInstance(long(ptr), QtGui.QWidget)
+    widget = shiboken.wrapInstance(long(ptr), QWidget)
     return widget
 
 class Callback(object):
